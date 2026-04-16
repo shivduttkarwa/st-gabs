@@ -1,0 +1,109 @@
+/* ============================================================
+   GLOBAL UTILITIES
+   ============================================================ */
+
+html,
+body {
+  background: #FFFFFF;
+  overflow-x: hidden;
+}
+
+#body-content-wrap,
+#body-content {
+  overflow-x: clip;
+}
+
+@media (max-width: 1280px) and (min-width: 992px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+.bg-none {
+  background: none !important;
+}
+
+.obj-cover {
+  object-fit: cover;
+}
+
+.obj-contain {
+  object-fit: contain;
+}
+
+/* ============================================================
+   BUTTON SYSTEM
+   ============================================================ */
+
+.btn {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.044rem;
+  text-transform: uppercase;
+  border-radius: var(--radius-xsmall);
+  padding: 1rem 1.5rem;
+  transition: background 0.25s ease-in-out, color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+.btn-primary {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-navy-dark);
+  border-color: var(--color-navy-dark);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background: var(--color-white-alpha20);
+  color: var(--color-white);
+}
+
+.btn-outline-navy {
+  background: transparent;
+  border: 1px solid var(--color-navy);
+  color: var(--color-navy);
+}
+
+.btn-outline-navy:hover {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.btn-cyan-navy {
+  background: var(--color-cyan-bright);
+  border-color: var(--color-cyan-bright);
+  color: var(--color-navy);
+}
+
+.btn-cyan-navy:hover {
+  background: var(--color-cyan);
+  border-color: var(--color-cyan);
+  color: var(--color-navy);
+}
+
+.btn-donate {
+  background: var(--color-cyan-bright);
+  border-color: var(--color-cyan-bright);
+  color: var(--color-navy);
+  font-size: var(--fz-label-sm);
+  padding: 0.9375rem 1.25rem;
+  border-radius: var(--radius-xsmall);
+}
+
+.btn-donate:hover {
+  background: var(--color-cyan);
+  border-color: var(--color-cyan);
+  color: var(--color-white);
+}

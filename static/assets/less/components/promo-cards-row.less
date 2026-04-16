@@ -1,0 +1,71 @@
+.sg-promo-cards {
+  padding: 5rem 0;
+  background: var(--color-white);
+}
+
+.sg-promo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sg-promo-card-frame {
+  width: 100%;
+  aspect-ratio: 400 / 257;
+}
+
+.sg-promo-card-frame svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sg-promo-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5625rem;
+}
+
+.sg-promo-card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.sg-promo-card-copy h3 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1.5625rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03125rem;
+  color: var(--color-navy);
+}
+
+.sg-promo-card-copy p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-darkest-grey);
+}
+
+.sg-promo-card-link {
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.sg-promo-card-link span:first-child {
+  color: var(--color-cyan);
+}
+
+@media (max-width: 991px) {
+  .sg-promo-cards {
+    padding: 3rem 0;
+  }
+
+}
