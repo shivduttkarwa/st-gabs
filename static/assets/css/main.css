@@ -66,6 +66,12 @@
   stroke-dasharray: 4200;
   stroke-dashoffset: 4200;
 }
+@media (max-width: 575px) {
+  .sg-preloader__text {
+    width: 90vw;
+    left: 5vw;
+  }
+}
 .before-preloader-content {
   clip-path: none;
 }
@@ -397,6 +403,38 @@ body {
 #body-content-wrap,
 #body-content {
   overflow-x: clip;
+}
+/* ── Smooth scroll containers ─────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+.Lenis-init #body-content-wrap {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+.Scrollbar-init body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.Scrollbar-init #body-content-wrap {
+  height: 100vh;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 @media (max-width: 1280px) and (min-width: 992px) {
   html {
@@ -1941,6 +1979,30 @@ body {
     font-size: 1.375rem;
   }
 }
+/* Split slider text slides — desktop (must come before mobile overrides) */
+.sg-split-slider-content-inner {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+.sg-split-slider-text-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.sg-split-slider-text-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.sg-split-slider-anim-item {
+  will-change: transform, opacity;
+}
 @media (max-width: 991px) {
   .sg-split-slider-text-inner {
     --sg-split-text-pad-x: 1.25rem;
@@ -1964,13 +2026,35 @@ body {
     min-height: auto;
   }
   .sg-split-slider-pic-slider {
-    height: 18rem;
+    height: 24rem;
     aspect-ratio: unset;
   }
   .sg-split-slider-text-slider {
     height: auto;
   }
+  /* Grid-stack all slides in the same cell so the container height is
+     always the tallest slide — no layout shift on transition */
+  .sg-split-slider-content-inner {
+    flex: 0 0 auto;
+    position: static;
+    display: grid;
+  }
+  .sg-split-slider-text-slide {
+    grid-area: 1 / 1;
+    position: static;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .sg-split-slider-text-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
   .sg-split-slider-text-card {
+    height: auto;
     min-height: 0;
     gap: 1rem;
     padding: 1.5rem var(--sg-split-text-pad-x) 0;
@@ -1985,7 +2069,7 @@ body {
   .sg-split-slider-quote {
     font-size: 1.0625rem;
     line-height: 1.45;
-    min-height: 9.5rem;
+    min-height: 0;
   }
   .sg-split-slider-bottom {
     flex-direction: column;
@@ -2010,41 +2094,14 @@ body {
     font-size: 0.9375rem;
   }
 }
-/* Split slider text slides */
-.sg-split-slider-content-inner {
-  position: relative;
-  flex: 1;
-  min-height: 0;
-}
-.sg-split-slider-text-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.sg-split-slider-text-slide.is-active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-.sg-split-slider-anim-item {
-  will-change: transform, opacity;
-}
 @media (max-width: 575px) {
   .sg-split-slider-pic-slider {
-    height: 15.5rem;
+    height: 20rem;
   }
   .sg-split-slider-pic {
     -webkit-mask-image: none;
     mask-image: none;
     border-radius: 1.25rem;
-  }
-  .sg-split-slider-quote {
-    min-height: 8.5rem;
   }
 }
 .sg-news-preview {
